@@ -6,12 +6,16 @@ def wordcount(file):
 
 	word_count = {}
 
-	for word in test_file:
-		word_count.get(word, 0) + 1
+	for line in test_file:
+		for word in line:
+			word_count[word] = word_count.get(word, 0) + 1
+
 
 	test_file.close()
 
-	return word_count
+	# return word_count
+
+	return (word, word_count[word])
 
 print(wordcount('test.txt'))
 
